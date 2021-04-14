@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bed index{% endblock %}
+
+{% block body %}
+    <h1>Bed index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Timber</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bed in beds %}
+            <tr>
+                <td>{{ bed.id }}</td>
+                <td>{{ bed.name }}</td>
+                <td>{{ bed.size }}</td>
+                <td>{{ bed.price }}</td>
+                <td>
+                    <a href="{{ url('timber_show', {'id': bed.timber.id}) }}">
+                    {{ bed.timber }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path('bed_show', {'id': bed.id}) }}">show</a>
+                    <a href="{{ path('bed_edit', {'id': bed.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('bed_new') }}">Create new</a>
+{% endblock %}

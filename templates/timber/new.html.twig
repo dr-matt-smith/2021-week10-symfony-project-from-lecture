@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Timber{% endblock %}
+
+{% block body %}
+    <h1>Create new Timber</h1>
+
+    {{ include('timber/_form.html.twig') }}
+
+    <a href="{{ path('timber_index') }}">back to list</a>
+{% endblock %}

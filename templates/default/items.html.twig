@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}privacy{% endblock %}
+
+{% block body %}
+<h1>
+    Privacy Policy
+</h1>
+
+    <table>
+
+    {% for item in items %}
+        <tr>
+            <td>
+                {{ item.description }}
+            </td>
+            <td>
+                {{ item.lengthMeters }}
+            </td>
+            <td>
+                {{ item.isDeliveryToPersonString }}
+            </td>
+        </tr>
+
+
+    {% endfor %}
+    </table>
+{% endblock %}
